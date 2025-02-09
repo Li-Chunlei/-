@@ -73,28 +73,28 @@ using namespace std;
 const int dx[]={1,1,1,0,0,0,-1,-1,-1};
 const int dy[]={-1,0,1,-1,0,1,-1,0,1};
 
+char mp[105][105];
+
+int n,m;
+
 int main(){
-    int n,m;
-    scanf("%d %d",&n,&m);
-    char map[110][110];
+    cin>>n>>m;
     for(int i=1;i<=n;i++){
         for(int j=1;j<=m;j++){
-            cin>>map[i][j];
+            cin>>mp[i][j];
         }
     }
 
     for(int i=1;i<=n;i++){
         for(int j=1;j<=m;j++){
-            if(map[i][j]=='*'){
-                cout<<"*";
-            }else if(map[i][j]!='*'){
+            if(mp[i][j]!='*'){
                 int cnt=0;//一定要清空
                 for(int k=0;k<8;k++){
-                    if(map[i+dx[k]][j+dy[k]]=='*')
+                    if(mp[i+dx[k]][j+dy[k]]=='*')
                         cnt++;
                 }
                 cout<<cnt;
-            }
+            }else cout<<"*";
         }
         cout<<endl;
     }
